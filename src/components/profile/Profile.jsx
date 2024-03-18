@@ -1,27 +1,34 @@
-const Profile = () => {
+import css from "./Profile.module.css";
+
+const Profile = ({
+  name,
+  tag,
+  location,
+  avatar,
+  stats: { followers, views, likes },
+}) => {
   return (
-    <div>
-      <div>
-        <img
-          src="https://cdn-icons-png.flaticon.com/512/1077/1077012.png"
-          alt="User avatar"
-        />
-        <p>Petra Marica</p>
-        <p>@pmarica</p>
-        <p>Salvador, Brasil</p>
+    <div className={css.profileContainer}>
+      <div className={css.userInfoContainer}>
+        <div className={css.thumb}>
+          <img className={css.userImg} src={avatar} alt="User avatar" />
+        </div>
+        <p className={css.userName}>{name}</p>
+        <p className={css.userTag}>@{tag}</p>
+        <p className={css.userLocation}>{location}</p>
       </div>
-      <ul>
-        <li>
+      <ul className={css.userStatistic}>
+        <li className={css.userStatisticItem}>
           <span>Followers</span>
-          <span>1000</span>
+          <span>{followers}</span>
         </li>
-        <li>
+        <li className={css.userStatisticItem}>
           <span>Views</span>
-          <span>2000</span>
+          <span>{views}</span>
         </li>
-        <li>
+        <li className={css.userStatisticItem}>
           <span>Likes</span>
-          <span>3000</span>
+          <span>{likes}</span>
         </li>
       </ul>
     </div>
